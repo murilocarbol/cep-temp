@@ -8,6 +8,10 @@ import (
 	"github.com/murilocarbol/cep-temp/application/model"
 )
 
+type TemperatureUseCaseInterface interface {
+	GetTemperature(cep string) (*model.Temperature, error)
+}
+
 type TemperatureUseCase struct {
 	viaCepClient  client.ViaCepClient
 	weatherClient client.WeatherClient

@@ -27,7 +27,7 @@ func NewMockWeatherClient() *MockWeatherClient {
 	return &MockWeatherClient{}
 }
 
-func (c *MockViaCepClient) GetTemperature(cep string) (*model.Temperature, error) {
+func (c *MockTemperatureUseCase) GetTemperature(cep string) (*model.Temperature, error) {
 	args := c.Called(cep)
 	if args.Get(0) == nil {
 		return nil, args.Error(1)
