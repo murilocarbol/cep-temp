@@ -20,7 +20,7 @@ func Initialize() {
 
 	app := fiber.New()
 	setRoutes(app, confg.WEATHER_API_KEY)
-	app.Listen(":3000")
+	app.Listen(":8080")
 }
 
 func setRoutes(app *fiber.App, key string) {
@@ -34,7 +34,7 @@ func setRoutes(app *fiber.App, key string) {
 	// Controllers
 	temperatureController := controllers.NewTemperatureController(temperatureUseCase)
 
-	app.Post("/", temperatureController.GetTemperature)
+	app.Get("/", temperatureController.GetTemperature)
 }
 
 func LoadConfig(path string) (*configure, error) {
